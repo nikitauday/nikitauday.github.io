@@ -1,3 +1,4 @@
+import Nav from '../components/Nav'
 import Reveal from '../components/Reveal'
 import './about.css'
 import headshotPhoto from '../assets/about/headshot.jpeg'
@@ -6,13 +7,6 @@ import washingtonSquareBlossoms from '../assets/about/about-washington-square-bl
 import nyuCapToss from '../assets/about/about-nyu-cap-toss.jpeg'
 import lowerManhattan from '../assets/about/about-lower-manhattan.jpeg'
 import keralaBackwaters from '../assets/about/about-kerala-backwaters.jpeg'
-
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/projects.html', label: 'Projects' },
-  { href: '/research.html', label: 'Research' },
-  { href: '/about.html', label: 'About', active: true },
-]
 
 const bio = [
   "I started as a computer science engineer and spent two and a half years at Microsoft as an Azure cloud consultant, building data sync APIs and authentication flows on a platform serving 100,000 users. That work taught me how software actually gets built, and how much of a product's fate is decided in conversations engineers have with each other.",
@@ -34,19 +28,7 @@ const gallery = [
 export default function AboutPage() {
   return (
     <div className="about-page">
-      <nav className="about-nav">
-        <div className="about-nav-inner">
-          <a href="/" className="about-nav-brand">Nikita Uday</a>
-          <div className="about-nav-links">
-            {navLinks.map((link) => (
-              <a key={link.label} href={link.href} className={link.active ? 'active' : ''}>
-                {link.label}
-              </a>
-            ))}
-            <a href="/#contact" className="about-nav-contact">Contact</a>
-          </div>
-        </div>
-      </nav>
+      <Nav active="about" />
 
       <main className="about-main">
         <Reveal as="h1" className="about-title">About</Reveal>

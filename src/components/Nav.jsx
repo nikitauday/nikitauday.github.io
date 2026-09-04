@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const links = [
   { key: 'home', href: '/', label: 'Home' },
@@ -9,8 +9,12 @@ const links = [
 
 export default function Nav({ active = 'home' }) {
   const contactHref = active === 'home' ? '#contact' : '/#contact'
+  const { scrollY } = useScroll()
+  const shadowAlpha = useTransform(scrollY, [0, 80], [0, 0.1])
+  const navShadow = useTransform(shadowAlpha, (a) => `0 8px 20px rgba(23, 60, 74, ${a})`)
+
   return (
-    <nav
+    <motion.nav
       className="nav"
       style={{
         position: 'sticky',
@@ -18,6 +22,7 @@ export default function Nav({ active = 'home' }) {
         zIndex: 10,
         background: 'var(--color-bg)',
         paddingInline: 'max(var(--edge), calc((100% - 1200px) / 2 + var(--edge)))',
+        boxShadow: navShadow,
       }}
     >
       <motion.a
@@ -52,6 +57,6 @@ export default function Nav({ active = 'home' }) {
       >
         Contact
       </motion.a>
-    </nav>
+    </motion.nav>
   )
 }

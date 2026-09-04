@@ -1,8 +1,14 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
+import { useRef } from 'react'
 import Reveal from './Reveal'
 import aboutPortrait from '../assets/home/about-portrait-tight.jpeg'
 
 export default function Hero() {
+  const frameRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: frameRef, offset: ['start end', 'end start'] })
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [-18, 18])
+  const prefersReducedMotion = useReducedMotion()
+
   return (
     <section
       id="about"
@@ -14,12 +20,22 @@ export default function Hero() {
         alignItems: 'start',
       }}
     >
-      <Reveal as="figure" style={{ margin: 0 }}>
-        <img
-          src={aboutPortrait}
-          alt="Nikita at an observation deck above Manhattan at night"
-          style={{ width: '100%', aspectRatio: '4/5', objectFit: 'cover', objectPosition: '50% 50%', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-lg)', display: 'block' }}
-        />
+      <Reveal as="figure" style={{ margin: 0, borderRadius: 'var(--radius-md)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+        <div ref={frameRef} style={{ width: '100%', aspectRatio: '4/5', overflow: 'hidden' }}>
+          <motion.img
+            src={aboutPortrait}
+            alt="Nikita at an observation deck above Manhattan at night"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: '50% 50%',
+              display: 'block',
+              scale: 1.08,
+              y: prefersReducedMotion ? 0 : parallaxY,
+            }}
+          />
+        </div>
       </Reveal>
       <div>
         <Reveal as="h1" style={{ margin: 0 }}>
