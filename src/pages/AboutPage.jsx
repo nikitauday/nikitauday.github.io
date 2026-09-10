@@ -1,5 +1,6 @@
 import Nav from '../components/Nav'
 import Reveal from '../components/Reveal'
+import useCopyEmail, { EMAIL } from '../hooks/useCopyEmail'
 import './about.css'
 import headshotPhoto from '../assets/about/headshot.jpeg'
 import nyuGraduation from '../assets/about/about-nyu-graduation.jpeg'
@@ -26,6 +27,7 @@ const gallery = [
 ]
 
 export default function AboutPage() {
+  const [copied, copyEmail] = useCopyEmail()
   return (
     <div className="about-page">
       <Nav active="about" />
@@ -43,12 +45,36 @@ export default function AboutPage() {
         <Reveal as="p" delay={0.12} className="about-role">Product Manager · New York, NY</Reveal>
 
         <Reveal delay={0.15} className="about-social">
-          <a href="mailto:nikita.uday@nyu.edu" aria-label="Email Nikita" className="email">
-            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
-              <rect x="2.5" y="4.5" width="19" height="15" rx="2" />
-              <path d="M3 6l9 7 9-7" />
-            </svg>
-          </a>
+          <span style={{ position: 'relative', display: 'inline-flex' }}>
+            <a href={`mailto:${EMAIL}`} aria-label="Email Nikita" className="email" onClick={copyEmail}>
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7">
+                <rect x="2.5" y="4.5" width="19" height="15" rx="2" />
+                <path d="M3 6l9 7 9-7" />
+              </svg>
+            </a>
+            <span
+              role="status"
+              aria-live="polite"
+              style={{
+                position: 'absolute',
+                bottom: 'calc(100% + 8px)',
+                left: '50%',
+                transform: `translateX(-50%) translateY(${copied ? '0' : '4px'})`,
+                opacity: copied ? 1 : 0,
+                transition: 'opacity 0.15s ease, transform 0.15s ease',
+                pointerEvents: 'none',
+                background: 'var(--ink)',
+                color: '#fff',
+                fontSize: '12.5px',
+                fontWeight: 600,
+                padding: '5px 10px',
+                borderRadius: 'var(--radius-sm)',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Copied {EMAIL}
+            </span>
+          </span>
           <a href="https://www.linkedin.com/in/nikitauday/" target="_blank" rel="noopener" aria-label="LinkedIn profile" className="linkedin">
             <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
               <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.5 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.2 1.47-2.2 3v5.8h-4V9Z" />
