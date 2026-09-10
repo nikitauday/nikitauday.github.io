@@ -46,8 +46,8 @@ export default function Hero() {
           delay={0.05}
           style={{ fontSize: '15.5px', lineHeight: 'var(--leading)', maxWidth: 'var(--measure)', margin: 'calc(1.5*var(--leading) - 1cap) 0 0', color: 'var(--ink)' }}
         >
-          I come from Kochi, Kerala, and I've got a background in technical consulting (previously at Microsoft)
-          plus a master's in Technology Management from NYU Tandon. These days I'm figuring out how to combine
+          I come from Kochi, Kerala, and I've got a background in technology consulting (previously at Microsoft)
+          plus a Master's in Technology Management from NYU Tandon. These days I'm figuring out how to combine
           the "how it works" mindset of engineering with the "why it matters" mindset of product.
         </Reveal>
         <Reveal
