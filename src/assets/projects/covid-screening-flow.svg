@@ -1,0 +1,56 @@
+<svg width="680" height="330" viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>COVID-19 entry screening system flow</title>
+<desc>A camera scan triggers facial recognition, then mask detection via OpenCV and a trained ML model, a temperature check, and a sanitizer check, before a pass/fail decision grants or denies building entry.</desc>
+<defs>
+<marker id="arrowh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#173c4a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></marker>
+</defs>
+
+<g>
+<rect x="40" y="30" width="140" height="70" rx="8" fill="#dde3c4" stroke="#173c4a" stroke-width="0.75"></rect>
+<text x="110" y="52" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#173c4a">Camera scan</text>
+<text x="110" y="76" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5f7a82">Facial recognition</text>
+</g>
+<line x1="180" y1="65" x2="193" y2="65" stroke="#173c4a" stroke-width="1" marker-end="url(#arrowh)"></line>
+
+<g>
+<rect x="193" y="30" width="140" height="70" rx="8" fill="#dde3c4" stroke="#173c4a" stroke-width="0.75"></rect>
+<text x="263" y="52" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#173c4a">Mask detection</text>
+<text x="263" y="76" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5f7a82">OpenCV + ML model</text>
+</g>
+<line x1="333" y1="65" x2="346" y2="65" stroke="#173c4a" stroke-width="1" marker-end="url(#arrowh)"></line>
+
+<g>
+<rect x="346" y="30" width="140" height="70" rx="8" fill="#dde3c4" stroke="#173c4a" stroke-width="0.75"></rect>
+<text x="416" y="52" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#173c4a">Body temp check</text>
+<text x="416" y="76" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5f7a82">IR scan for fever</text>
+</g>
+<line x1="486" y1="65" x2="499" y2="65" stroke="#173c4a" stroke-width="1" marker-end="url(#arrowh)"></line>
+
+<g>
+<rect x="499" y="30" width="140" height="70" rx="8" fill="#dde3c4" stroke="#173c4a" stroke-width="0.75"></rect>
+<text x="569" y="52" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#173c4a">Sanitizer check</text>
+<text x="569" y="76" text-anchor="middle" dominant-baseline="central" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#5f7a82">Verified on camera</text>
+</g>
+
+<path d="M569 100 L569 126 L340 126 L340 150" fill="none" stroke="#173c4a" stroke-width="1" marker-end="url(#arrowh)"></path>
+
+<g>
+<rect x="240" y="150" width="200" height="44" rx="8" fill="#fdf6df" stroke="#173c4a" stroke-width="0.75"></rect>
+<text x="340" y="172" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#173c4a">All checks passed?</text>
+</g>
+
+<path d="M340 194 L340 220 L170 220 L170 246" fill="none" stroke="#173c4a" stroke-width="1" marker-end="url(#arrowh)"></path>
+<path d="M340 194 L340 220 L510 220 L510 246" fill="none" stroke="#173c4a" stroke-width="1" marker-end="url(#arrowh)"></path>
+<text x="255" y="208" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" letter-spacing="0.5" fill="#5f7a82">YES</text>
+<text x="425" y="208" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" letter-spacing="0.5" fill="#5f7a82">NO</text>
+
+<g>
+<rect x="80" y="246" width="180" height="44" rx="8" fill="#1c7a71"></rect>
+<text x="170" y="268" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#fdf6df">Entry granted</text>
+</g>
+
+<g>
+<rect x="420" y="246" width="180" height="44" rx="8" fill="#96144f"></rect>
+<text x="510" y="268" text-anchor="middle" dominant-baseline="central" font-family="Georgia, 'Times New Roman', serif" font-size="14" fill="#fdf6df">Entry denied</text>
+</g>
+</svg>

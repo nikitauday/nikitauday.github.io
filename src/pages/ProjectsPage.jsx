@@ -9,6 +9,7 @@ import useHashScroll from '../hooks/useHashScroll'
 import guardianPosterFull from '../assets/projects/guardian-poster-full.png'
 import guardianPosterPortrait from '../assets/projects/guardian-poster-portrait.jpeg'
 import guardianTeamPoster from '../assets/projects/guardian-team-poster.jpeg'
+import covidScreeningFlow from '../assets/projects/covid-screening-flow.svg'
 
 const panelCream = {
   background: 'var(--color-surface)',
@@ -101,8 +102,8 @@ function Aurora() {
             <span style={{ position: 'absolute', right: 14, bottom: 34, fontFamily: 'var(--font-heading)', fontSize: 80, lineHeight: 0.85, color: 'transparent', WebkitTextStroke: '1.5px rgba(255,255,255,.5)', pointerEvents: 'none' }}>3.6x</span>
             <span style={{ position: 'absolute', right: 16, bottom: 14, font: "600 11.5px var(--font-body)", letterSpacing: '.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,.75)' }}>market growth by 2030</span>
           </div>
-          <figure style={{ margin: 0 }}>
-            <div style={{ borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(23,60,74,.14)', background: '#fff' }}>
+          <figure style={{ margin: 0, flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <div style={{ borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(23,60,74,.14)', background: '#fff', flex: 1, display: 'flex', flexDirection: 'column' }}>
               <a
                 href="https://auroraforschedules.lovable.app"
                 target="_blank"
@@ -119,7 +120,7 @@ function Aurora() {
                 src="https://auroraforschedules.lovable.app"
                 title="Smart Schedule App live prototype"
                 loading="lazy"
-                style={{ display: 'block', width: '100%', height: 280, border: 0, background: '#fff' }}
+                style={{ display: 'block', width: '100%', flex: 1, minHeight: 480, border: 0, background: '#fff' }}
               />
             </div>
             <figcaption style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 12, marginTop: 12 }}>
@@ -155,27 +156,33 @@ function Guardian() {
       <Reveal
         delay={0.05}
         className="story-grid"
-        style={{ display: 'grid', gridTemplateColumns: 'minmax(0,8fr) minmax(0,12fr)', gap: 20, marginTop: 'calc(1.5*var(--leading))', alignItems: 'stretch' }}
+        style={{ display: 'grid', gridTemplateColumns: 'minmax(0,11fr) minmax(0,10fr)', gap: 20, marginTop: 'calc(1.5*var(--leading))', alignItems: 'stretch' }}
       >
         <div style={panelCream}>
           <div>
             <h3 style={h3Style}>Problem</h3>
             <p style={pStyle}>
-              GUARDIAN runs on a multi-model consensus engine orchestrating 12 leading LLMs with quantum-enhanced routing.
-              Its buyers sit in complex B2G sectors, including UN, NATO, and national security, where trust and risk
-              reduction outweigh feature lists. The platform needed a go-to-market strategy and a roadmap for initial
-              adoption.
+              GUARDIAN checks AI outputs for policy risk by running them through 12 leading LLMs and combining their
+              answers. Its buyers are governments and institutions like the UN and NATO, who care more about trust and
+              risk reduction than a feature list. The platform needed a go-to-market strategy and a roadmap for its
+              first customers.
             </p>
           </div>
           <div>
             <h3 style={h3Style}>Approach</h3>
-            <p style={pStyle}>
-              Managed the technical scoping and refinement of the consensus engine, keeping product decisions tied to the
-              system's 95% accuracy in policy analysis. Conducted market research across UN, NATO, and national security
-              buyers and built a detailed customer journey map to guide GTM and feature prioritization. Synthesized
-              competitor analysis and initial product-state findings with customer insights to define the scope of UX/UI
-              enhancements.
-            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {[
+                "Managed the technical scoping and refinement of the consensus engine, keeping product decisions tied to the system's 95% accuracy in policy analysis.",
+                'Conducted market research spanning AI governance policies across the US, EU, and three Gulf states (Qatar, UAE, and Saudi Arabia), defining GUARDIAN\'s three-region positioning.',
+                'Synthesized Gulf-specific requirements into scoring criteria and lifecycle checkpoints, validated through user interviews.',
+                'Led the definition of UX/UI enhancement scope by synthesizing competitive intelligence and consumer insights, directly influencing the product roadmap to accelerate platform adoption.',
+              ].map((text, i) => (
+                <div key={i} style={{ display: 'flex', gap: 12 }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: 19, color: 'var(--terracotta-dark)', flex: 'none', width: '1.4em' }}>{i + 1}</span>
+                  <p style={pStyle}>{text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -194,7 +201,7 @@ function Guardian() {
               <StatSilhouette value="95%" label="Policy accuracy" size={70} />
             </div>
           </div>
-          <div style={{ background: 'var(--sage-tint)', borderRadius: 'var(--radius-md)', padding: 34, flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
+          <div style={{ background: 'var(--sage-tint)', borderRadius: 'var(--radius-md)', padding: 22, flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
             <h3 style={{ ...h3Style, marginBottom: 0 }}>Methods</h3>
             <MethodTags items={['Market research', 'Customer journey mapping', 'Competitor analysis', 'Technical scoping', 'GTM strategy']} />
           </div>
@@ -233,36 +240,73 @@ function Covid() {
           <div>
             <h3 style={h3Style}>Problem</h3>
             <p style={pStyle}>
-              Keeping employees safe during COVID-19 depended on catching outbreaks early, but provider reporting ran
-              through workflows that were never built for real-time data. Detection lagged, and contact tracing depended
-              on manual handoffs to HR.
+              Built at a hackathon to simplify outbreak detection and keep high-traffic spaces, like offices, colleges,
+              and other organizations, safer during COVID-19. Catching outbreaks early meant spotting cases in real
+              time, but provider reporting still ran through slow, manual workflows. Detection lagged, and contact
+              tracing depended on manual handoffs to HR.
             </p>
           </div>
           <div>
             <h3 style={h3Style}>Approach</h3>
-            <p style={pStyle}>
-              Collaborated with clinicians and public health stakeholders to conduct user research and map provider
-              reporting workflows. Integrated real-time data collection into existing healthcare operations rather than
-              around them, and built automated reporting into HR systems so contact tracing could run on current data.
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {[
+                'Collaborated with clinicians and public health stakeholders to conduct user research and map provider reporting workflows.',
+                'Integrated real-time data collection into existing healthcare operations rather than around them.',
+                'Built automated reporting into HR systems so contact tracing could run on current data.',
+                'Built the detection pipeline on OpenCV and a trained ML model for facial recognition and mask detection.',
+              ].map((text, i) => (
+                <div key={i} style={{ display: 'flex', gap: 12 }}>
+                  <span style={{ fontFamily: 'var(--font-heading)', fontSize: 19, color: 'var(--terracotta-dark)', flex: 'none', width: '1.4em' }}>{i + 1}</span>
+                  <p style={pStyle}>{text}</p>
+                </div>
+              ))}
+            </div>
+            <p style={{ font: "600 12px var(--font-body)", letterSpacing: '.05em', textTransform: 'uppercase', margin: 'var(--leading) 0 10px', color: 'var(--sage-dark)' }}>
+              Agile sprint cycle
             </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10 }}>
+              {[
+                ['Plan', 'Sprint planning in Azure DevOps across PST, IST, and EST'],
+                ['Build', 'Built the detection pipeline and reporting integrations'],
+                ['Test', 'Validated model accuracy and workflow fit with stakeholders'],
+                ['Review', 'Sprint retros on GitHub to refine the next cycle'],
+              ].map(([label, desc]) => (
+                <div key={label}>
+                  <p style={{ fontSize: 12, color: 'var(--ink-muted)', margin: '0 0 2px' }}>{label}</p>
+                  <p style={{ fontSize: 13.5, lineHeight: 1.35, margin: 0, color: 'var(--ink)' }}>{desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <div style={{ background: 'var(--citrus)', color: '#fff', borderRadius: 'var(--radius-md)', padding: 34, display: 'flex', flexDirection: 'column' }}>
+          <div style={{ background: 'var(--citrus)', color: '#fff', borderRadius: 'var(--radius-md)', padding: '22px 24px', display: 'flex', flexDirection: 'column' }}>
             <h3 style={h3Style}>Outcome</h3>
             <p style={{ fontSize: 15.5, lineHeight: 'var(--leading)', margin: 0, maxWidth: '46ch' }}>
               A machine-learning monitoring system that increased employee safety and accelerated outbreak detection, with
               automated reporting enabling timely contact tracing across the organization.
             </p>
-            <div style={{ marginTop: 'auto', paddingTop: 32, display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', gap: 14, textAlign: 'right' }}>
+            <div style={{ marginTop: 16, display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', gap: 10, textAlign: 'right' }}>
               <StatSilhouette value="40%" label="Faster detection" size={70} />
               <span style={{ width: 1, height: 50, background: 'rgba(255,255,255,.28)' }} />
               <StatSilhouette value="35%" label="Safer employees" size={70} />
+              <span style={{ width: 1, height: 50, background: 'rgba(255,255,255,.28)' }} />
+              <StatSilhouette value="1st" label="Runner-up, hackathon" size={70} />
             </div>
+          </div>
+          <div style={{ background: '#fdf6df', borderRadius: 'var(--radius-md)', padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8, boxShadow: 'var(--shadow-sm)' }}>
+            <img
+              src={covidScreeningFlow}
+              alt="COVID-19 entry screening system flow: camera scan, mask detection, temperature check, sanitizer check, then pass or fail entry decision"
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+            <p style={{ fontSize: 12, color: 'var(--ink-muted)', margin: 0 }}>
+              Entry screening flow: camera scan → mask detection → temp check → sanitizer check → pass/fail decision
+            </p>
           </div>
           <div style={{ background: 'var(--sage-tint)', borderRadius: 'var(--radius-md)', padding: 34, flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
             <h3 style={{ ...h3Style, marginBottom: 0 }}>Methods</h3>
-            <MethodTags items={['User research', 'Workflow mapping', 'Stakeholder collaboration', 'ML model integration', 'Systems integration']} />
+            <MethodTags items={['User research', 'Workflow mapping', 'Stakeholder collaboration', 'ML model integration', 'Systems integration', 'OpenCV', 'Azure DevOps', 'GitHub']} />
           </div>
         </div>
       </Reveal>
@@ -299,6 +343,21 @@ function ShoulderSeason() {
               the audience, user journey mapping for trust and verification touchpoints, and a business model canvas to
               test how the platform would acquire and retain users.
             </p>
+            <p style={{ font: "600 12px var(--font-body)", letterSpacing: '.05em', textTransform: 'uppercase', margin: 'var(--leading) 0 10px', color: 'var(--sage-dark)' }}>
+              GTM flow
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 10 }}>
+              {[
+                ['Acquire', 'Off-peak SEO content and partnerships with travel communities'],
+                ['Activate', 'Free verified profile, guided to a first suggested match'],
+                ['Retain', 'Repeat-trip nudges and a referral loop for return travelers'],
+              ].map(([label, desc]) => (
+                <div key={label}>
+                  <p style={{ fontSize: 12, color: 'var(--ink-muted)', margin: '0 0 2px' }}>{label}</p>
+                  <p style={{ fontSize: 13.5, lineHeight: 1.35, margin: 0, color: 'var(--ink)' }}>{desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
