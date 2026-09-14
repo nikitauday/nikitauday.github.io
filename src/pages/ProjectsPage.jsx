@@ -193,12 +193,12 @@ function Guardian() {
               and a GUARDIAN project lifecycle with policy-to-practice checks at every stage, plus a reusable template for
               localizing GUARDIAN to other high-risk regions.
             </p>
-            <div style={{ marginTop: 'auto', paddingTop: 32, display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', gap: 14, textAlign: 'right' }}>
-              <StatSilhouette value="3" label="Regions compared" size={70} />
-              <span style={{ width: 1, height: 50, background: 'rgba(255,255,255,.28)' }} />
-              <StatSilhouette value="12" label="LLMs orchestrated" size={70} />
-              <span style={{ width: 1, height: 50, background: 'rgba(255,255,255,.28)' }} />
-              <StatSilhouette value="95%" label="Policy accuracy" size={70} />
+            <div style={{ marginTop: 'auto', paddingTop: 32, display: 'flex', justifyContent: 'flex-end', alignItems: 'stretch', gap: 14, textAlign: 'right' }}>
+              <StatSilhouette value="3" label="Regions compared" size={70} numberHeight={60} />
+              <span style={{ width: 1, background: 'rgba(255,255,255,.28)' }} />
+              <StatSilhouette value="12" label="LLMs orchestrated" size={70} numberHeight={60} />
+              <span style={{ width: 1, background: 'rgba(255,255,255,.28)' }} />
+              <StatSilhouette value="95%" label="Policy accuracy" size={70} numberHeight={60} />
             </div>
           </div>
           <div style={{ background: 'var(--sage-tint)', borderRadius: 'var(--radius-md)', padding: 22, flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--space-2)' }}>
