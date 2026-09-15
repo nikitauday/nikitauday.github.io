@@ -178,3 +178,5 @@ export const skillsTools = [
   '.NET',
   'REST API',
 ]
+
+export const skillsCertifications = ['Google Ads Search Certification (2026–27)']

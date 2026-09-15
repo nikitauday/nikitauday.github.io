@@ -5,7 +5,7 @@ import microsoftLogo from '../assets/home/microsoft-logo.svg'
 import cyberInstituteLogo from '../assets/home/cyber-institute-logo.png'
 import bostonStrategiesLogo from '../assets/home/boston-strategies-logo.png'
 import nyuSeal from '../assets/home/nyu-seal.svg'
-import { experienceItems, educationItems, skillsProduct, skillsTools } from '../data/content'
+import { experienceItems, educationItems, skillsProduct, skillsTools, skillsCertifications } from '../data/content'
 
 const logos = {
   'cyber-institute': cyberInstituteLogo,
@@ -87,6 +87,7 @@ export default function Experience() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--leading)' }}>
             <SkillGroup label="Product" tags={skillsProduct} className="tag-outline-terracotta" />
             <SkillGroup label="Tools & technical" tags={skillsTools} className="tag-outline-sage" />
+            <SkillGroup label="Certifications" tags={skillsCertifications} className="tag-outline-sage" />
           </div>
         </div>
       </div>
