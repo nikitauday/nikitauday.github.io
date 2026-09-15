@@ -17,6 +17,7 @@ const panelCreamCol = { ...panelCream, display: 'flex', flexDirection: 'column',
 const panelSageTint = { background: 'var(--sage-tint)', borderRadius: 'var(--radius-md)', padding: 34 }
 const h3Style = { fontFamily: 'var(--font-heading)', fontWeight: 400, fontSize: 27, margin: '0 0 var(--space-2)' }
 const pStyle = { fontSize: 15.5, lineHeight: 'var(--leading)', margin: 0, color: 'var(--ink)' }
+const tagOutlineSage = { font: '500 13px var(--font-body)', color: 'var(--sage-dark)', background: 'var(--color-surface)', border: '1.5px solid var(--sage)', padding: '6.5px 15px', borderRadius: 100 }
 
 function Warehouse() {
   return (
@@ -30,7 +31,7 @@ function Warehouse() {
 
       <Reveal delay={0.05} style={{ ...panelCream, marginTop: 'calc(1.5*var(--leading))' }}>
         <h3 style={h3Style}>Situation</h3>
-        <p style={{ fontSize: 15.5, lineHeight: 1.6, margin: '0 0 20px', maxWidth: '70ch', color: 'var(--ink)' }}>
+        <p style={{ fontSize: 15.5, lineHeight: 1.6, margin: '0 0 20px', maxWidth: '92ch', color: 'var(--ink)', textAlign: 'justify' }}>
           Automation and AI are modernizing warehouse-club operations, and omnichannel strategies are turning stores into
           fulfillment hubs. Both Sam's Club and Costco are digitalizing, but differently:
         </p>
@@ -103,9 +104,10 @@ function Warehouse() {
         style={{ display: 'grid', gridTemplateColumns: 'minmax(0,5fr) minmax(0,7fr)', gap: 20, marginTop: 'calc(1.5*var(--leading))', alignItems: 'stretch' }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <div style={{ ...panelCream, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <h3 style={h3Style}>Question</h3>
-            <p style={{ fontSize: 17, lineHeight: 'var(--leading)', margin: 0, color: 'var(--ink)' }}>
+          <div style={{ ...panelCream, position: 'relative', overflow: 'hidden', flex: 1, display: 'flex', flexDirection: 'column' }}>
+            <h3 style={{ ...h3Style, margin: '0 0 var(--space-3)' }}>Question</h3>
+            <p style={{ fontSize: 15.5, lineHeight: 'var(--leading)', margin: '0 0 var(--space-3)', color: 'var(--ink)' }}>&nbsp;</p>
+            <p style={{ fontFamily: 'var(--font-heading)', fontSize: 24, lineHeight: 1.3, margin: 0, color: 'var(--ink)', fontStyle: 'italic' }}>
               As Sam's Club closes the digital gap, is Costco's slower e-commerce investment a rational bet on its
               membership model, or a risk it is underpricing?
             </p>
@@ -129,8 +131,8 @@ function Warehouse() {
               ['A product line built on radical curation', 'About 4,000 SKUs, so every listing reads as a quality signal. Kirkland Signature is the clearest case.'],
             ].map(([title, desc]) => (
               <div key={title}>
-                <p style={{ font: "700 14.5px var(--font-body)", color: '#fff', margin: '0 0 3px' }}>{title}</p>
-                <p style={{ fontSize: 14, lineHeight: 1.5, margin: 0, color: 'rgba(255,255,255,.88)' }}>{desc}</p>
+                <p style={{ font: "700 15.5px var(--font-body)", color: '#fff', margin: '0 0 3px' }}>{title}</p>
+                <p style={{ fontSize: 15.5, lineHeight: 1.5, margin: 0, color: 'rgba(255,255,255,.88)' }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -190,7 +192,7 @@ function PDD() {
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                 {['Fair driver pay', 'Affordable prices', 'Profitability'].map((t) => (
-                  <span key={t} style={{ font: "600 13px var(--font-body)", color: 'var(--ink)', background: '#fff', padding: '7px 15px', borderRadius: 100 }}>{t}</span>
+                  <span key={t} style={tagOutlineSage}>{t}</span>
                 ))}
               </div>
               <p style={{ ...pStyle, marginTop: 'var(--space-2)' }}>
@@ -211,13 +213,13 @@ function PDD() {
               Personal delivery devices (autonomous sidewalk robots) are moving upmarket:
             </p>
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 10, margin: '0 0 18px' }}>
-              <span style={{ font: "600 12.5px var(--font-body)", letterSpacing: '.03em', color: 'var(--ink)', background: '#fff', borderRadius: 100, padding: '7px 15px' }}>Campus food</span>
+              <span style={tagOutlineSage}>Campus food</span>
               {['Urban & healthcare', 'Warehouse & industrial'].map((label) => (
                 <span key={label} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(23,60,74,.4)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ flex: 'none' }}>
                     <path d="M5 12h13" /><path d="M12 6l6 6-6 6" />
                   </svg>
-                  <span style={{ font: "600 12.5px var(--font-body)", letterSpacing: '.03em', color: 'var(--ink)', background: '#fff', borderRadius: 100, padding: '7px 15px' }}>{label}</span>
+                  <span style={tagOutlineSage}>{label}</span>
                 </span>
               ))}
             </div>
@@ -233,16 +235,17 @@ function PDD() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 22, position: 'relative', maxWidth: '46ch' }}>
               {[
                 ['Hardware scales linearly, data compounds', 'More deliveries require proportionally more robots, but every mile driven adds to a navigation dataset that costs nothing to reuse.'],
-                ['Depth of dataset is the lever', "Starship leads with over 10 million autonomous miles. That depth lets an operator license mapping layers, negotiate better platform terms, and build switching costs competitors can't match."],
+                ['Depth of dataset is the lever', "Starship leads with over 10 million autonomous miles and 9.6 million deliveries completed to date. That depth lets an operator license mapping layers, negotiate better platform terms, and build switching costs competitors can't match."],
                 ['Infrastructure, not platform', "Porter's value chain places PDDs inside platforms like Uber Eats and DoorDash: value moves hub to door, linearly, never networked."],
               ].map(([title, desc]) => (
                 <div key={title}>
-                  <p style={{ font: "700 14.5px var(--font-body)", color: '#fff', margin: '0 0 5px' }}>{title}</p>
-                  <p style={{ fontSize: 14, lineHeight: 1.5, margin: 0, color: 'rgba(255,255,255,.88)' }}>{desc}</p>
+                  <p style={{ font: "700 15.5px var(--font-body)", color: '#fff', margin: '0 0 5px' }}>{title}</p>
+                  <p style={{ fontSize: 15.5, lineHeight: 1.5, margin: 0, color: 'rgba(255,255,255,.88)' }}>{desc}</p>
                 </div>
               ))}
             </div>
-            <span style={{ position: 'absolute', right: 14, bottom: 6, fontFamily: 'var(--font-heading)', fontSize: 104, lineHeight: 0.85, color: 'transparent', WebkitTextStroke: '1.5px rgba(255,255,255,.5)', pointerEvents: 'none' }}>10M</span>
+            <span style={{ position: 'absolute', right: 14, bottom: 34, fontFamily: 'var(--font-heading)', fontSize: 104, lineHeight: 0.85, color: 'transparent', WebkitTextStroke: '1.5px rgba(255,255,255,.5)', pointerEvents: 'none' }}>9.6M</span>
+            <span style={{ position: 'absolute', right: 16, bottom: 14, font: "600 11px var(--font-body)", letterSpacing: '.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,.75)' }}>Deliveries completed to date</span>
           </div>
         </div>
       </Reveal>
@@ -278,9 +281,9 @@ function BSI() {
             <div>
               <h3 style={h3Style}>Problem</h3>
               <p style={pStyle}>
-                Senior leadership needed a revised edition of the firm's industry reference book:{' '}
-                <strong>modernized chapters</strong>, plus evidence connecting supply-chain strategy to{' '}
-                <strong>financial performance</strong>.
+                Senior leadership needed a revised edition of the firm's industry reference book, <em>Guide to Supply
+                Chain Management</em> by David Steven Jacoby: modernized chapters, plus evidence connecting
+                supply-chain strategy to financial performance.
               </p>
             </div>
             <div>
@@ -357,8 +360,12 @@ function RideShield() {
             <div>
               <h3 style={h3Style}>Situation</h3>
               <p style={{ ...pStyle, marginBottom: 'var(--space-2)' }}>
-                <strong>Crashes spike between 12 AM and 4 AM</strong>, where fatigue, poor visibility and dense urban
-                traffic compound each other.
+                Ride-sharing safety cuts both ways: riders and drivers alike face poor-visibility roads, accident-prone
+                stretches, and isolated routes with little help nearby.
+              </p>
+              <p style={{ ...pStyle, marginBottom: 'var(--space-2)' }}>
+                Crashes spike between 12 AM and 4 AM, where fatigue, poor visibility and dense urban traffic compound
+                each other.
               </p>
               <p style={pStyle}>
                 Long, irregular shifts leave late-night drivers most exposed, and passengers feel least safe in exactly
@@ -370,7 +377,7 @@ function RideShield() {
               <p style={{ ...pStyle, marginBottom: 'var(--space-2)' }}>Every incident costs the platform three ways at once:</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                 {['Reputation', 'Liability', 'Driver churn'].map((t) => (
-                  <span key={t} style={{ font: "600 13px var(--font-body)", color: 'var(--ink)', background: '#fff', padding: '7px 15px', borderRadius: 100 }}>{t}</span>
+                  <span key={t} style={tagOutlineSage}>{t}</span>
                 ))}
               </div>
               <p style={{ ...pStyle, marginTop: 'var(--space-2)' }}>
@@ -389,13 +396,13 @@ function RideShield() {
             <h3 style={h3Style}>Question</h3>
             <p style={{ ...pStyle, marginBottom: 18 }}>Safety has three moments, and today's tools only reach the last one:</p>
             <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 10, margin: '0 0 18px' }}>
-              <span style={{ font: "600 12.5px var(--font-body)", letterSpacing: '.03em', color: 'var(--ink)', background: '#fff', borderRadius: 100, padding: '7px 15px' }}>Before the ride</span>
+              <span style={tagOutlineSage}>Before the ride</span>
               {['During the ride', 'After an incident'].map((label) => (
                 <span key={label} style={{ display: 'inline-flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap' }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(23,60,74,.4)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ flex: 'none' }}>
                     <path d="M5 12h13" /><path d="M12 6l6 6-6 6" />
                   </svg>
-                  <span style={{ font: "600 12.5px var(--font-body)", letterSpacing: '.03em', color: 'var(--ink)', background: '#fff', borderRadius: 100, padding: '7px 15px' }}>{label}</span>
+                  <span style={tagOutlineSage}>{label}</span>
                 </span>
               ))}
             </div>
@@ -415,8 +422,8 @@ function RideShield() {
                 ['Protect', 'Either party can trigger Guardian Mode: recording, live location, safety-team alert. PulseLink escalates unanswered check-ins.'],
               ].map(([title, desc]) => (
                 <div key={title}>
-                  <p style={{ font: "700 14.5px var(--font-body)", color: '#fff', margin: '0 0 3px' }}>{title}</p>
-                  <p style={{ fontSize: 14, lineHeight: 1.5, margin: 0, color: 'rgba(255,255,255,.88)' }}>{desc}</p>
+                  <p style={{ font: "700 15.5px var(--font-body)", color: '#fff', margin: '0 0 3px' }}>{title}</p>
+                  <p style={{ fontSize: 15.5, lineHeight: 1.5, margin: 0, color: 'rgba(255,255,255,.88)' }}>{desc}</p>
                 </div>
               ))}
             </div>

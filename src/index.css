@@ -186,6 +186,27 @@ figcaption {
 .nav a:hover { color: var(--ink); }
 .nav a.btn { padding: 10px 20px; color: #fff; }
 
+.nav-link-dot { position: relative; color: var(--sage-dark); }
+.nav-link-dot::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--sage);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 4px) scale(0.6);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+.nav-link-dot:hover { color: var(--sage-dark-hover); }
+.nav-link-dot:hover::after { opacity: 1; transform: translate(-50%, 0) scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  .nav-link-dot::after { transition: none; }
+}
+
 @media (max-width: 640px) {
   .nav { flex-wrap: wrap; row-gap: var(--space-2); gap: var(--space-3); }
   .nav-brand { width: 100%; }

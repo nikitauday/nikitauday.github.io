@@ -28,7 +28,7 @@ export default function Nav({ active = 'home' }) {
       <motion.a
         href="/"
         className="nav-brand"
-        whileHover={{ y: -1, color: '#12554e' }}
+        whileHover={{ color: '#12554e' }}
         transition={{ duration: 0.18, ease: 'easeOut' }}
         style={{ textDecoration: 'none' }}
       >
@@ -37,15 +37,14 @@ export default function Nav({ active = 'home' }) {
       {links.map((link) => {
         const isActive = link.key === active
         return (
-          <motion.a
+          <a
             key={link.key}
             href={link.href}
-            whileHover={isActive ? { y: -1 } : { y: -1, color: '#12554e' }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
-            style={{ fontWeight: 600, color: isActive ? 'var(--terracotta-dark)' : 'var(--sage-dark)' }}
+            className={isActive ? undefined : 'nav-link-dot'}
+            style={isActive ? { fontWeight: 600, color: 'var(--terracotta-dark)' } : { fontWeight: 600 }}
           >
             {link.label}
-          </motion.a>
+          </a>
         )
       })}
       <motion.a
